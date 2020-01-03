@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useState, useMemo } from "react";
 import { Formik, Field, Form, ErrorMessage, getIn } from "formik";
 import * as Yup from "yup";
 
@@ -23,13 +23,16 @@ const AddGiftCard = () => {
   const prams = getSearchParams();
   const { productId } = prams;
   const defaultSelection = categories[0].id;
-  const dropDownInput = categories.map((category, index) => {
-    return (
-      <option key={category.id} value={category.id} selected={index === 0}>
-        {category.name}
-      </option>
-    );
-  });
+  const dropDownInput = useMemo(
+    categories.map((category, index) => {
+      return (
+        <option key={category.id} value={category.id} selected={index === 0}>
+          {category.name}
+        </option>
+      );
+    }),
+    [categories]
+  );
 
   useEffect(() => {
     (async () => {

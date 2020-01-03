@@ -39,13 +39,13 @@ function ProdctDetailsPage() {
       appDispatcher.hideSpinner();
     })();
   }, [productId]);
-  const renderSendGiftModal = () => {
+  const renderSendGiftModal = useCallback(() => {
     setOpenModal(true);
-  };
+  }, []);
   const doClose = useCallback(() => {
     setOpenModal(false);
   }, []);
-  const addToFavourite = async gift => {
+  const addToFavourite = useCallback(async gift => {
     appDispatcher.showSpinner();
     const userData = { ...appState.userData };
     const { favorites } = userData;
@@ -72,8 +72,8 @@ function ProdctDetailsPage() {
       });
     }
     appDispatcher.hideSpinner();
-  };
-  const removeFromFavourite = async gift => {
+  }, []);
+  const removeFromFavourite = useCallback(async gift => {
     appDispatcher.showSpinner();
     const userData = { ...appState.userData };
     const { favorites } = userData;
@@ -98,7 +98,7 @@ function ProdctDetailsPage() {
       }
     });
     appDispatcher.hideSpinner();
-  };
+  }, []);
   return (
     <>
       <div className="cls_giftDetailsCont">

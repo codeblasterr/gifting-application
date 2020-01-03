@@ -55,7 +55,7 @@ function ScrollableContainer(props) {
       giftInfo: { id: gift.id, name: gift.name }
     });
   }, []);
-  const addToFavourite = async (gift, elem) => {
+  const addToFavourite = useCallback(async (gift, elem) => {
     elem.stopPropagation();
     appDispatchContext.showSpinner();
     const userData = { ...appStateContext.userData };
@@ -83,8 +83,8 @@ function ScrollableContainer(props) {
       });
     }
     appDispatchContext.hideSpinner();
-  };
-  const removeFromFavourite = async (gift, elem) => {
+  }, []);
+  const removeFromFavourite = useCallback(async (gift, elem) => {
     elem.stopPropagation();
     appDispatchContext.showSpinner();
     const userData = { ...appStateContext.userData };
@@ -110,7 +110,7 @@ function ScrollableContainer(props) {
       }
     });
     appDispatchContext.hideSpinner();
-  };
+  }, []);
   return (
     <>
       <div className="cls_category">

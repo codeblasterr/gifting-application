@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useCallback } from "react";
 import emailjs from "emailjs-com";
 import { Formik, Field, Form, ErrorMessage, getIn } from "formik";
 import * as Yup from "yup";
@@ -15,7 +15,7 @@ import "./SendGift.css";
 
 const SendGift = props => {
   const appDispatchContext = useContext(AppDispatchContext);
-  const sendMail = (templateId, variables) => {
+  const sendMail = useCallback((templateId, variables) => {
     emailjs
       .send("gmail", templateId, variables, emailJS_userId)
       .then(res => {
@@ -31,8 +31,8 @@ const SendGift = props => {
           }
         })
       );
-  };
-  const doSendGift = async values => {
+  }, []);
+  const doSendGift = useCallback(async values => {
     const { receiverEmail, message } = values;
     const data = {
       senderId: props.userInfo.id,
@@ -63,7 +63,7 @@ const SendGift = props => {
         }
       });
     }
-  };
+  }, []);
   return (
     <>
       <div className="cls_skPopupTitle">Send Gift</div>

@@ -42,21 +42,24 @@ const ListPage = props => {
   const categoryId = useMemo(() => {
     return param.categoryId;
   }, [param.categoryId]);
-  const brands = appStateContext.brands.map(brand => {
-    return (
-      <Fragment key={brand}>
-        <input
-          key={brand}
-          type="radio"
-          onChange={elem => handleBrandFilter(brand, elem)}
-          name="brandGroup"
-          value={brand}
-        />
-        {brand}
-        <br />
-      </Fragment>
-    );
-  });
+  const brands = useMemo(
+    appStateContext.brands.map(brand => {
+      return (
+        <Fragment key={brand}>
+          <input
+            key={brand}
+            type="radio"
+            onChange={elem => handleBrandFilter(brand, elem)}
+            name="brandGroup"
+            value={brand}
+          />
+          {brand}
+          <br />
+        </Fragment>
+      );
+    }),
+    [appStateContext.brands]
+  );
   useEffect(() => {
     (async () => {
       appDispatchContext.showSpinner();
@@ -88,7 +91,7 @@ const ListPage = props => {
     });
   }, []);
 
-  const addToFavourite = async (gift, elem) => {
+  const addToFavourite = useCallback(async (gift, elem) => {
     elem.stopPropagation();
     appDispatchContext.showSpinner();
     const userData = { ...appStateContext.userData };
@@ -116,8 +119,8 @@ const ListPage = props => {
       });
     }
     appDispatchContext.hideSpinner();
-  };
-  const removeFromFavourite = async (gift, elem) => {
+  }, []);
+  const removeFromFavourite = useCallback(async (gift, elem) => {
     elem.stopPropagation();
     appDispatchContext.showSpinner();
     const userData = { ...appStateContext.userData };
@@ -143,23 +146,26 @@ const ListPage = props => {
       }
     });
     appDispatchContext.hideSpinner();
-  };
-  const ratingFilter = ratings.map(rating => {
-    return (
-      <Fragment key={rating}>
-        <input
-          type="radio"
-          name="ratingGroup"
-          onChange={elem => handleRatingFilter(rating, elem)}
-          value="4"
-        />
-        {rating} & Above
-        <br />
-      </Fragment>
-    );
-  });
+  }, []);
+  const ratingFilter = useMemo(
+    ratings.map(rating => {
+      return (
+        <Fragment key={rating}>
+          <input
+            type="radio"
+            name="ratingGroup"
+            onChange={elem => handleRatingFilter(rating, elem)}
+            value="4"
+          />
+          {rating} & Above
+          <br />
+        </Fragment>
+      );
+    }),
+    [ratings]
+  );
 
-  const handleBrandFilter = async (value, elem) => {
+  const handleBrandFilter = useCallback(async (value, elem) => {
     (async () => {
       let isSelected = elem.target.checked;
       let newParam = { ...param };
@@ -167,9 +173,9 @@ const ListPage = props => {
       let gifts = await getGiftsList(newParam);
       appDispatchContext.dispatch({ type: FILTTER_CARD_LIST, payLoad: gifts });
     })();
-  };
+  }, []);
 
-  const handleRatingFilter = (rating, elem) => {
+  const handleRatingFilter = useCallback((rating, elem) => {
     (async () => {
       let isSelected = elem.target.checked;
       let newParam = { ...param };
@@ -177,7 +183,7 @@ const ListPage = props => {
       let gifts = await getGiftsList(newParam);
       appDispatchContext.dispatch({ type: FILTTER_CARD_LIST, payLoad: gifts });
     })();
-  };
+  }, []);
 
   return (
     <>

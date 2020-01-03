@@ -121,7 +121,7 @@ const InfiniteLoadList = props => {
     });
   }, []);
 
-  const addToFavourite = async (gift, elem) => {
+  const addToFavourite = useCallback(async (gift, elem) => {
     elem.stopPropagation();
     appDispatchContext.showSpinner();
     const userData = { ...appStateContext.userData };
@@ -149,8 +149,8 @@ const InfiniteLoadList = props => {
       });
     }
     appDispatchContext.hideSpinner();
-  };
-  const removeFromFavourite = async (gift, elem) => {
+  }, []);
+  const removeFromFavourite = useCallback(async (gift, elem) => {
     elem.stopPropagation();
     appDispatchContext.showSpinner();
     const userData = { ...appStateContext.userData };
@@ -176,7 +176,7 @@ const InfiniteLoadList = props => {
       }
     });
     appDispatchContext.hideSpinner();
-  };
+  }, []);
   const ratingFilter = ratings.map(rating => {
     return (
       <Fragment key={rating}>

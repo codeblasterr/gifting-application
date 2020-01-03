@@ -7,7 +7,12 @@ import giftCards from "../../../../../tools/Data/GiftCardMockData";
 const renderProductCard = props => {
   const defaultProps = {
     gift: {},
-    doOpen: jest.fn()
+    doOpen: jest.fn(),
+    appStateContext: {
+      userData: {
+        favorites: []
+      }
+    }
   };
   const param = { ...defaultProps, ...props };
   return shallow(<ProductCard {...param} />);

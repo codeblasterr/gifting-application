@@ -91,7 +91,7 @@ const ProfilePage = () => {
     });
   }, []);
 
-  const addPointsToUser = async () => {
+  const addPointsToUser = useCallback(async () => {
     appDisPatch.showSpinner();
     const data = {
       userId: userData.id,
@@ -117,8 +117,8 @@ const ProfilePage = () => {
       });
     }
     appDisPatch.hideSpinner();
-  };
-  const removeFromFavourite = async (gift, elem) => {
+  }, []);
+  const removeFromFavourite = useCallback(async (gift, elem) => {
     elem.stopPropagation();
     appDisPatch.showSpinner();
     const userData = { ...appState.userData };
@@ -144,10 +144,10 @@ const ProfilePage = () => {
       }
     });
     appDisPatch.hideSpinner();
-  };
-  const toggleAddPoints = () => {
+  }, []);
+  const toggleAddPoints = useCallback(() => {
     setShowAddPoints(true);
-  };
+  }, []);
   return (
     <>
       <h1>Profile</h1>

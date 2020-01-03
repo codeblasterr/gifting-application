@@ -11,7 +11,6 @@ const ProductCard = props => {
   const appStateContext = useContext(AppStateContext);
   const appDispatchContext = useContext(AppDispatchContext);
   const { isLoggedIn, isSuperAdmin } = appStateContext;
-  debugger;
   const userFavourites = useMemo(() => appStateContext.userData.favorites, [
     appStateContext.userData
   ]);

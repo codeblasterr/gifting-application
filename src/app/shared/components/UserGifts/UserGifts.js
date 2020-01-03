@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useEffect, useState, useContext, useCallback } from "react";
 
 import { AppDispatchContext } from "./../../../../App";
 import { updateUserGift } from "./../../utilities/utils";
@@ -19,17 +19,17 @@ const UserGift = () => {
     })();
   }, [userInfo.email]);
 
-  const getSentGifts = async () => {
+  const getSentGifts = useCallback(async () => {
     setIsSent(true);
     const userGift = await getUserGifts({ senderEmail: userInfo.email });
     setGifts(userGift);
-  };
-  const getReceivedGifts = async () => {
+  }, []);
+  const getReceivedGifts = useCallback(async () => {
     setIsSent(false);
     const userGift = await getUserGifts({ receiverEmail: userInfo.email });
     setGifts(userGift);
-  };
-  const redeemGift = async id => {
+  }, []);
+  const redeemGift = useCallback(async id => {
     appDispatchContext.showSpinner();
     const redeemResp = await updateUserGift(id, { redemed: true });
     if (redeemResp.id) {
@@ -39,7 +39,7 @@ const UserGift = () => {
       setGifts(newGifts);
     }
     appDispatchContext.hideSpinner();
-  };
+  }, []);
   return (
     <div className="cls_userGiftCont">
       <h3>Gift Cards</h3>

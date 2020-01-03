@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useCallback } from "react";
 import { useHistory, NavLink, useParams } from "react-router-dom";
 import { Avatar, Button, Menu, MenuItem } from "@material-ui/core";
 import { GoogleLogin, GoogleLogout } from "react-google-login";
@@ -35,7 +35,7 @@ const Header = () => {
   const userInfo = getUserDetails();
   const { isLoggedIn, isSuperAdmin, userId } = appState;
 
-  const handleLogin = async response => {
+  const handleLogin = useCallback(async response => {
     if (response && response.tokenId) {
       localStorage.setItem("auth-token", response.tokenId);
       let userInformation = getUserDetails();
@@ -73,23 +73,23 @@ const Header = () => {
         }
       });
     }
-  };
-  const handleClick = event => {
+  }, []);
+  const handleClick = useCallback(event => {
     setAnchorEl(event.currentTarget);
-  };
+  }, []);
 
-  const handleClose = () => {
+  const handleClose = useCallback(() => {
     setAnchorEl(null);
-  };
+  }, []);
 
-  const handleLogout = () => {
+  const handleLogout = useCallback(() => {
     localStorage.removeItem("auth-token");
     localStorage.removeItem("userData");
     appDispatcher.dispatch({ type: "LOGGED_OUT" });
     setAnchorEl(null);
     history.push("/");
-  };
-  const handleOnKeyUp = async event => {
+  }, []);
+  const handleOnKeyUp = useCallback(async event => {
     const value = event.target.value;
     const qParams = getSearchParams();
     if (!param.productId && event.keyCode === 13)
@@ -112,7 +112,7 @@ const Header = () => {
         payLoad: { gifts, brands, updatedList }
       });
     }
-  };
+  }, []);
   return (
     <div id="id_navigation">
       <header>

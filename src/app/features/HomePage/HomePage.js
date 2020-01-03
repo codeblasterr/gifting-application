@@ -8,14 +8,18 @@ import { AppStateContext } from "./../../../App";
 export function HomePage() {
   const appState = useContext(AppStateContext);
   const categories = useMemo(() => appState.categories, [appState.categories]);
-  const scrollers = categories.map(category => (
-    <ScrollableContainer
-      key={category.id}
-      categoryId={category.id}
-      category={category.name}
-      _limit={5}
-    />
-  ));
+  const scrollers = useMemo(
+    () =>
+      categories.map(category => (
+        <ScrollableContainer
+          key={category.id}
+          categoryId={category.id}
+          category={category.name}
+          _limit={5}
+        />
+      )),
+    [categories]
+  );
   return (
     <>
       <Banner />

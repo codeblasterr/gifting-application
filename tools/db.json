@@ -18094,19 +18094,21 @@
       "name": "Bernard Xavier",
       "email": "joinwithbernard@gmail.com",
       "balancePoints": 500,
-      "isAdmin": false,
-      "favorites": [],
+      "isAdmin": true,
+      "favorites": [
+        "d5zz0-n"
+      ],
       "image": "https://lh3.googleusercontent.com/a-/AAuE7mCan6ZLGf4Yewx3rWQXWBKUzy9roFNwjoKjgVHA=s96-c",
       "id": 1
     },
     {
       "name": "Bernard Xavier",
       "email": "bennytest1694@gmail.com",
-      "balancePoints": 2000,
+      "balancePoints": 0,
       "isAdmin": false,
       "favorites": [],
       "image": "https://lh5.googleusercontent.com/-nmbH3Z4US7Q/AAAAAAAAAAI/AAAAAAAAAAA/ACHi3rdi012BMY70XzdUBcAHBzQL-Q-XNg/s96-c/photo.jpg",
-      "createdAt": 1578034736454,
+      "createdAt": 1578046933512,
       "id": 2
     }
   ],
@@ -18218,6 +18220,26 @@
       "giftId": "44-012-9469",
       "giftName": "HEIDENREICH GROUP",
       "id": 8
+    },
+    {
+      "senderEmail": "joinwithbernard@gmail.com",
+      "receiverEmail": "aniraj1991@gmail.com",
+      "giftId": "d5zz0-n",
+      "giftName": "Flat 10% off at checkout - Digital Voucher",
+      "message": "Test",
+      "redemed": false,
+      "createdAt": 1578046977521,
+      "id": 9
+    },
+    {
+      "senderEmail": "joinwithbernard@gmail.com",
+      "receiverEmail": "joinwithbernard@gmail.com",
+      "giftId": "d5zz0-n",
+      "giftName": "Flat 10% off at checkout - Digital Voucher",
+      "message": "Test",
+      "redemed": false,
+      "createdAt": 1578047046277,
+      "id": 10
     }
   ],
   "comments-reviews": [

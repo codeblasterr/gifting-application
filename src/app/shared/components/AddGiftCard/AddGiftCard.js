@@ -24,13 +24,14 @@ const AddGiftCard = () => {
   const { productId } = prams;
   const defaultSelection = categories[0].id;
   const dropDownInput = useMemo(
-    categories.map((category, index) => {
-      return (
-        <option key={category.id} value={category.id} selected={index === 0}>
-          {category.name}
-        </option>
-      );
-    }),
+    () =>
+      categories.map((category, index) => {
+        return (
+          <option key={category.id} value={category.id} selected={index === 0}>
+            {category.name}
+          </option>
+        );
+      }),
     [categories]
   );
 

@@ -61,21 +61,25 @@ const InfiniteLoadList = props => {
   const categoryId = useMemo(() => {
     return param.categoryId;
   }, [param.categoryId]);
-  const brands = appStateContext.brands.map(brand => {
-    return (
-      <Fragment key={brand}>
-        <input
-          key={brand}
-          type="radio"
-          onChange={elem => handleBrandFilter(brand, elem)}
-          name="brandGroup"
-          value={brand}
-        />
-        {brand}
-        <br />
-      </Fragment>
-    );
-  });
+  const brands = useMemo(
+    () =>
+      appStateContext.brands.map(brand => {
+        return (
+          <Fragment key={brand}>
+            <input
+              key={brand}
+              type="radio"
+              onChange={elem => handleBrandFilter(brand, elem)}
+              name="brandGroup"
+              value={brand}
+            />
+            {brand}
+            <br />
+          </Fragment>
+        );
+      }),
+    [appStateContext.brands]
+  );
   useEffect(() => {
     (async () => {
       appDispatchContext.showSpinner();
@@ -177,20 +181,24 @@ const InfiniteLoadList = props => {
     });
     appDispatchContext.hideSpinner();
   }, []);
-  const ratingFilter = ratings.map(rating => {
-    return (
-      <Fragment key={rating}>
-        <input
-          type="radio"
-          name="ratingGroup"
-          onChange={elem => handleRatingFilter(rating, elem)}
-          value="4"
-        />
-        {rating} & Above
-        <br />
-      </Fragment>
-    );
-  });
+  const ratingFilter = useMemo(
+    () =>
+      ratings.map(rating => {
+        return (
+          <Fragment key={rating}>
+            <input
+              type="radio"
+              name="ratingGroup"
+              onChange={elem => handleRatingFilter(rating, elem)}
+              value="4"
+            />
+            {rating} & Above
+            <br />
+          </Fragment>
+        );
+      }),
+    [ratings]
+  );
 
   const handleBrandFilter = async (value, elem) => {
     (async () => {

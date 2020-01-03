@@ -1,0 +1,75 @@
+.cls_giftDetailsCont,
+.cls_commentsCont {
+  padding: 15px;
+  border: 1px solid #e0e0e0;
+  border-radius: 5px;
+  margin: 10px 0;
+}
+
+.cls_giftDetais,
+.cls_giftDetailsCont .cls_buttonCont {
+  display: flex;
+}
+
+.cls_buttonCont .btn,
+.cls_giftDescriptionCont,
+.cls_imgBtnCont {
+  flex: 1;
+  text-align: center;
+}
+.cls_imgBtnCont,
+.cls_giftDescriptionCont {
+  margin: 10px;
+}
+
+.cls_giftImg img {
+  width: 100%;
+}
+
+.cls_giftDesc {
+  display: -webkit-box;
+  -webkit-line-clamp: 10;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.cls_infoCont {
+  display: flex;
+}
+
+.cls_giftDetailsCont .cls_ratingCont {
+  flex: 1;
+}
+
+.cls_giftDetailsCont .cls_pointsCont {
+  flex: 2;
+}
+
+.cls_regPoints span {
+  color: red;
+  text-decoration: line-through;
+}
+
+.cls_actualPoints span {
+  color: orange;
+}
+
+.cls_giftDetailsCont .cls_pointsCont {
+  display: flex;
+  justify-content: left;
+}
+
+.cls_giftDetailsCont .cls_regPoints,
+.cls_giftDetailsCont .cls_actualPoints {
+  text-align: left;
+  flex: 1;
+}
+
+.cls_giftDetailsCont .cls_ratingCont {
+  justify-content: flex-end;
+}
+
+.cls_giftDetailsCont .cls_adminActionCont {
+  display: flex;
+  justify-content: flex-end;
+}

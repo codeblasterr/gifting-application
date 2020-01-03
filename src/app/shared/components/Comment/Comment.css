@@ -1,0 +1,22 @@
+.cls_comment {
+  display: flex;
+  padding: 15px;
+  border: 1px solid #e0e0e0;
+  border-radius: 5px;
+  margin: 5px 0;
+  flex-direction: column;
+}
+.cls_userName,
+.cls_rating,
+.cls_review {
+  flex: 1;
+}
+.cls_comment .cls_ratingCont {
+  display: flex;
+}
+.cls_comment .cls_rating {
+  text-align: end;
+}
+.cls_comment .cls_review {
+  padding-left: 25px;
+}

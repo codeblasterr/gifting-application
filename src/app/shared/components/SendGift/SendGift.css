@@ -1,0 +1,28 @@
+input,
+select {
+  padding: 10px 0;
+  border: none;
+  width: 100%;
+  outline: none;
+  margin: 5px 0;
+  border-bottom: 2px solid blue;
+}
+input.error,
+select.error {
+  border-bottom: 1px solid red;
+}
+
+input.success,
+select.success {
+  border-bottom: 1px solid green;
+}
+
+input.focus,
+select.focus {
+  border-bottom: 1px solid blue;
+}
+
+.cls_skPopupTitle {
+  font-weight: bolder;
+  margin: 15px 0;
+}

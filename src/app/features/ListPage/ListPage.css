@@ -1,0 +1,51 @@
+.cls_listPageCont,
+.cls_productsCont {
+  display: flex;
+  justify-content: space-around;
+}
+.cls_listPageCont {
+  align-items: flex-start;
+}
+.cls_productsCont {
+  flex-wrap: wrap;
+  flex: 1;
+}
+
+.cls_filterCont {
+  flex-basis: 25%;
+  border: 1px solid;
+  padding: 5px;
+}
+.cls_filterCont,
+.cls_productsCont {
+  border: 1px solid gainsboro;
+  border-radius: 5px;
+  margin: 10px;
+}
+.cls_ratingFilterCont,
+.cls_brandFilterCont {
+  padding: 10px;
+  border: 1px solid gainsboro;
+  margin: 5px 0;
+}
+
+.cls_ratingFilterCont *,
+.cls_brandFilterCont * {
+  padding: 5px;
+}
+.cls_filterHeading {
+  font-weight: bolder;
+}
+
+.cls_filterCont fieldset {
+  border: none;
+}
+
+.cls_filterCont input {
+  cursor: pointer;
+}
+
+.cls_title {
+  margin: 10px;
+  text-transform: capitalize;
+}

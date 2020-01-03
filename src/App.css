@@ -1,0 +1,71 @@
+body * {
+  box-sizing: border-box;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+#id_mainCont {
+  flex: 1;
+}
+
+.container {
+  margin: auto;
+  width: 80%;
+}
+
+.btn {
+  padding: 10px;
+  border: 1px solid #fff;
+  border-radius: 5px;
+  background-color: #2196f3;
+  color: #fff;
+  min-width: 80px;
+  cursor: pointer;
+  transition: all ease 0.2s;
+}
+
+.btn:active {
+  box-shadow: 0 2px 0 #2196f3;
+  top: 3px;
+}
+
+input,
+select {
+  padding: 10px 0;
+  border: none;
+  width: 100%;
+  outline: none;
+  margin: 5px 0;
+  border-bottom: 2px solid blue;
+}
+input.error,
+select.error {
+  border-bottom: 1px solid red;
+}
+
+input.success,
+select.success {
+  border-bottom: 1px solid green;
+}
+
+input.focus,
+select.focus {
+  border-bottom: 1px solid blue;
+}
+
+.error {
+  color: red;
+}
+
+.cls_skPopupTitle {
+  font-weight: bolder;
+  margin: 15px 0;
+}
+
+input[type="radio"] {
+  width: auto;
+}

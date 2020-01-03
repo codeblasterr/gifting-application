@@ -1,0 +1,8 @@
+.cls_responseBtnCont {
+  display: flex;
+  justify-content: flex-end;
+}
+.cls_responseMsg,
+.cls_responseBtnCont {
+  padding: 15px;
+}

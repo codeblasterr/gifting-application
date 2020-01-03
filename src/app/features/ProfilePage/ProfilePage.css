@@ -1,0 +1,46 @@
+.cls_userProfileCont {
+  display: flex;
+  border: 1px solid #e0e0e0;
+  border-radius: 5px;
+  padding: 10px;
+  justify-content: space-around;
+}
+.cls_userImg {
+  flex: 1;
+}
+.cls_userDetailsCont {
+  flex: 2;
+}
+
+.cls_userDetailsCont,
+.cls_userImg {
+  margin: 5px;
+}
+
+.cls_userImg img {
+  height: 200px;
+}
+
+.cls_userInfo {
+  padding: 10px;
+}
+
+.cls_favoriteCont {
+  display: flex;
+  overflow-x: scroll;
+  border: 1px solid #e0e0e0;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+.cls_inpItem,
+.cls_btnWrapper {
+  flex: 1;
+}
+.cls_inputCont {
+  display: flex;
+}
+.cls_userPoints button {
+  margin: 0 10px;
+}

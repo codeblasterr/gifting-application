@@ -1,0 +1,76 @@
+.cls_imageCont {
+  width: 200px;
+  height: 200px;
+  align-items: center;
+  display: flex;
+}
+.cls_imageCont img {
+  width: 200px;
+  height: 200px;
+}
+
+.cls_buttonCont {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+  margin: 10px 0;
+}
+
+.cls_skProductCard {
+  border: 1px solid gainsboro;
+  border-radius: 5px;
+  margin: 10px;
+  padding: 10px;
+  width: 230px;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.cls_nameCont {
+  text-align: center;
+  margin: 10px 0;
+}
+
+.cls_pointsCont {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.cls_regPoints,
+.cls_actualPoints {
+  flex: 1;
+  text-align: center;
+}
+
+.cls_regPoints span {
+  color: red;
+  text-decoration: line-through;
+}
+
+.cls_actualPoints span {
+  color: orange;
+}
+
+.cls_ratingCont {
+  text-align: center;
+}
+
+.cls_detailsCont,
+.cls_imageCont,
+.cls_nameCont,
+.cls_pointsCont,
+.cls_buttonCont {
+  flex: 1;
+}
+
+.cls_detailsCont {
+  display: flex;
+  flex-direction: column;
+}
+
+.cls_productEdit {
+  display: flex;
+  justify-content: flex-end;
+  padding: 2px 0;
+}

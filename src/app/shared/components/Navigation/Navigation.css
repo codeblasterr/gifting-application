@@ -1,0 +1,41 @@
+li {
+  list-style-type: none;
+  cursor: pointer;
+  flex: 1;
+}
+
+ul {
+  display: flex;
+  padding: 0;
+  margin: 0;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.cls_menuItem {
+  padding: 10px;
+}
+
+.cls_menuItem:hover,
+.cls_activeCategory .cls_menuItem {
+  background-color: #e8eaf6;
+  border-radius: 4px;
+}
+
+nav {
+  border: 1px solid #e0e0e0;
+  border-radius: 5px;
+  margin: 5px 0;
+}
+
+nav a {
+  text-decoration: none;
+  color: black;
+}
+
+@media only screen and (max-width: 576px) {
+  ul {
+    flex-direction: column;
+  }
+}
